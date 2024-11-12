@@ -113,3 +113,25 @@ function fruit(reels, spins){
 		return RULE_MAP[counterEntries[0][0]].three
 	}
 }
+
+/* 更好的解決方式 */
+function fruit(reels, spins) {
+	/* 發現分數是累加的，所以透過 array 以及其 index 當作基礎分數 */
+	let map = ['Jack', 'Queen', 'King', 'Bar', 'Cherry', 'Seven', 'Shell', 'Bell', 'Star', 'Wild'];
+
+	let [a, b, c] = reels
+		// 會得到對應的 index + 1 => 代表基礎分數
+		.map((reel, i) => map.indexOf(reel[spins[i]]) + 1)
+		// 重新整理順序
+		.sort((a, b) => a - b);
+
+	// 三個都一樣 => 十倍
+	if (a === b && b === c)
+		return a * 10;
+
+	// 兩個不同，看是否有搭配 Wind 計算加成分數
+	if (a === b)
+		return c === 10 ? a * 2 : a;
+
+	return b === c ? b : 0;
+}
