@@ -1,6 +1,6 @@
 /*
 
-6kyu The Office I - Outed
+7kyu The Office I - Outed
 https://www.codewars.com/kata/57ecf6efc7fe13eb070000e1
 
 Your colleagues have been looking over your shoulder. When you should have been doing your boring real job, you've been using the work computers to smash in endless hours of codewars.
